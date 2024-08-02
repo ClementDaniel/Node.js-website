@@ -1,3 +1,7 @@
+
+
+---
+
 # Project: Training API Application
 
 ## Overview
@@ -27,41 +31,72 @@ Before you begin, ensure you have the following installed:
 ```bash
 git clone <repository-url>
 cd <repository-directory>
+```
 
 ### Install Dependencies
+
 Install the necessary npm packages for the project:
-- npm install
-#### This will install:
-express: A web framework for Node.js.
-dotenv: A module to load environment variables from a .env file.
+
+```bash
+npm install
+```
+
+This will install:
+
+- `express`: A web framework for Node.js.
+- `dotenv`: A module to load environment variables from a `.env` file.
+
 ### Setup Environment Variables
-Create a ".env" file in the root directory of your project with the following content:
+
+Create a `.env` file in the root directory of your project with the following content:
+
+```
 SECRET_WORD=your_secret_word_here
 PORT=3000
-Replace your_secret_word_here with your actual secret word.
-Application Structure
-index.js: The main entry point of the application.
-public/index.html: The HTML file served by the application.
-Dockerfile: Configuration file for building the Docker image.
-Docker Setup
+```
+
+Replace `your_secret_word_here` with your actual secret word.
+
+### Application Structure
+
+- **`index.js`**: The main entry point of the application.
+- **`public/index.html`**: The HTML file served by the application.
+- **`Dockerfile`**: Configuration file for building the Docker image.
+
+### Docker Setup
+
 To build and run the application in Docker, follow these steps:
-1. Build the Docker Image
-docker build -t my-node-app .
-2. Run the Docker Container
-docker run -p 8080:3000 -- my-node-app
-This command maps port 3000 in the container to port 8080 on your host machine.
-Testing the Application
+
+1. **Build the Docker Image**
+
+   ```bash
+   docker build -t my-node-app .
+   ```
+
+2. **Run the Docker Container**
+
+   ```bash
+   docker run -p 8080:3000 --name my-node-app-container my-node-app
+   ```
+
+   This command maps port 3000 in the container to port 8080 on your host machine.
+
+### Testing the Application
+
 Once the container is running, you can test the application by navigating to:
 
-Home Page: http://localhost:8080/
-Secret Page: http://localhost:8080/secret
-The home page should display a welcome message and a button to navigate to the secret page. The secret page will reveal the secret word set in your .env file.
+- **Home Page:** `http://localhost:8080/`
+- **Secret Page:** `http://localhost:8080/secret`
 
-Notes
-Error Handling: If you encounter errors such as "Cannot find module," ensure all dependencies are installed correctly and the Dockerfile paths are correctly set.
-Local Development: For local testing, make sure to run npm install to install all dependencies before building the Docker image.
-Troubleshooting
-Module Not Found: Ensure that all dependencies listed in package.json are installed. Use npm install to resolve missing modules.
-File Not Found in Docker: Verify that the paths in the Dockerfile and the .dockerignore file are correctly set.
+The home page should display a welcome message and a button to navigate to the secret page. The secret page will reveal the secret word set in your `.env` file.
 
+### Notes
+
+- **Error Handling:** If you encounter errors such as "Cannot find module," ensure all dependencies are installed correctly and the Dockerfile paths are correctly set.
+- **Local Development:** For local testing, make sure to run `npm install` to install all dependencies before building the Docker image.
+
+### Troubleshooting
+
+- **Module Not Found:** Ensure that all dependencies listed in `package.json` are installed. Use `npm install` to resolve missing modules.
+- **File Not Found in Docker:** Verify that the paths in the Dockerfile and the `.dockerignore` file are correctly set.
 
