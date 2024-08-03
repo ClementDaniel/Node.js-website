@@ -87,6 +87,7 @@ Once the container is running, you can test the application by navigating to:
 
 - **Home Page:** `http://localhost:8080/`
 - **Secret Page:** `http://localhost:8080/secret`
+- **Health Page :** `http://localhost:8080/health`
 
 The home page should display a welcome message and a button to navigate to the secret page. The secret page will reveal the secret word set in your `.env` file.
 
