@@ -52,7 +52,7 @@ Create a `.env` file in the root directory of your project with the following co
 
 ```
 SECRET_WORD=your_secret_word_here
-PORT=3000
+PORT=8080
 ```
 
 Replace `your_secret_word_here` with your actual secret word.
