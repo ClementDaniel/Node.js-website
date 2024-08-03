@@ -76,10 +76,10 @@ To build and run the application in Docker, follow these steps:
 2. **Run the Docker Container**
 
    ```bash
-   docker run -p 8080:3000 --name my-node-app-container my-node-app
+   docker run -p 8080:8080 --my-node-app
    ```
 
-   This command maps port 3000 in the container to port 8080 on your host machine.
+   This command maps port 8080 in the container to port 8080 on your host machine.
 
 ### Testing the Application
 
