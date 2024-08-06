@@ -91,6 +91,8 @@ To build and run the application in Docker, follow these steps:
 Once the container is running, you can test the application by navigating to:
 
 - **Home Page:** `http://localhost:8080/`
+  <img width="946" alt="hh" src="https://github.com/user-attachments/assets/bac536f8-4b6a-48ac-90ad-945c8cdb62ef">
+
 - **Secret Page:** `http://localhost:8080/secret`
 - **Health Page :** `http://localhost:8080/health`
 
