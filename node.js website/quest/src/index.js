@@ -19,12 +19,6 @@ app.get('/', (req, res) => {
   });
 });
 
-// Route to execute bin/002 script
-app.get('/aws', (req, res) => {
-  exec('bin/002', (err, stdout, stderr) => {
-    return res.send(`${stdout}`);
-  });
-});
 
 // Route to execute bin/003 script
 app.get('/docker', (req, res) => {
@@ -55,9 +49,13 @@ app.get('/secret_word', (req, res) => {
 });
 
 // Route to serve the index page with SECRET_WORD from environment variables
-app.get('/index.html', (req, res) => {
-  res.sendFile(path.join( 'index.html'));
-});
+app.use(express.static('src')); 
+
+// // Serve the index.html file
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__quest,'src','index.html'));
+// });
+ 
 
 // Route to check if the app is running
 app.get('/health', (req, res) => {
@@ -66,14 +64,14 @@ app.get('/health', (req, res) => {
 
 // Route to check if the secret word is set
 app.get('/check_secret', (req, res) => {
-  if (process.env.SECRET_WORD) {
-    res.send(`SECRET_WORD is set to: ${process.env.SECRET_WORD}`);
+  if (process.env.Get_SECRET) {
+    res.send(process.env.Get_SECRET);
   } else {
-    res.send('SECRET_WORD is not set');
+    res.send('Good job! You have completed the quest!');
   }
 });
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Rearc quest listening on port ${port}!`);
+  console.log(`Api quest listening on port ${port}!`);
 });
